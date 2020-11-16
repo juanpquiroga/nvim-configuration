@@ -4,7 +4,7 @@ This configuration is for python development
 
 # Instructions
 
-Install fzg and silver-searcher
+Install fzg and the_silver_searcher
 
 `
 sudo pacman -Sy fzf the-silver-searcher
