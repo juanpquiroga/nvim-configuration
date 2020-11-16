@@ -1,6 +1,6 @@
 " ---------------------------------
 " Neovim configuration
-" Version: 1.1
+" Version: 1.2
 " Date: 2020-11-16
 " Author: Juan Pablo Quiroga
 " Based in jdhao blog https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
@@ -118,6 +118,9 @@ Plug 'vim-syntastic/syntastic'
 
 " Code structures
 Plug 'vim-scripts/taglist.vim'
+
+" Icons for nerdtree
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
