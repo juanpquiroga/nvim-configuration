@@ -1,9 +1,10 @@
 " ---------------------------------
 " Neovim configuration
-" Version: 1.0
+" Version: 1.1
 " Date: 2020-11-16
 " Author: Juan Pablo Quiroga
-" ---------------------------------
+" Based in jdhao blog https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
+" --------------------------------
 
 " View line numbers
 set nu
@@ -22,6 +23,12 @@ nnoremap <C-Right> :tabnext<CR>
 noremap <C-s-Up> :call feedkeys( line('.')==1 ? '' : 'ddkP' )<CR>
 noremap <C-s-Down> ddp
 
+" Tab for autocompletion
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" NerdTree toggle crtl-p
+nnoremap <silent> <C-p> :NERDTreeToggle<CR>
+
 " ********************
 " Configurations
 " ********************
@@ -36,7 +43,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Deodeplete
+" Deoplete
 let g:deoplete#enable_at_startup = 1
 
 " Airline
@@ -58,7 +65,7 @@ let g:neomake_python_enabled_makers = ['pylint']
 " **********************
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Jedi for autocompletion and code
+" Jedi for code jump
 Plug 'davidhalter/jedi-vim'
 
 " Deoplete for autocompletion
@@ -69,7 +76,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Complete ", ( chars 
+" Automatic quote and bracket completion
 Plug 'jiangmiao/auto-pairs'
 
 " Comment lines
@@ -115,9 +122,9 @@ Plug 'vim-scripts/taglist.vim'
 call plug#end()
 
 
-" *******************
-" neomake auto exec
-" *******************
+" ************************
+" neomake auto code check
+" ************************
 call neomake#configure#automake('nrwi', 500)
 
 " *******************
