@@ -1,7 +1,7 @@
 " ---------------------------------
 " Neovim configuration
-" Version: 1.3
-" Date: 2020-11-16
+" Version: 1.4
+" Date: 2020-11-17
 " Author: Juan Pablo Quiroga
 " Based in jdhao blog https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
 " --------------------------------
@@ -50,6 +50,8 @@ vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " Tabs
 nmap <C-x> :bd<CR>
+
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " ********************
 " Configurations
@@ -153,6 +155,15 @@ Plug 'honza/vim-snippets'
 
 " Indent Guides
 Plug 'nathanaelkane/vim-indent-guides'
+
+Plug 'mhinz/vim-startify'
+
+Plug 'liuchengxu/vim-which-key'
+
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
