@@ -151,6 +151,9 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Indent Guides
+Plug 'nathanaelkane/vim-indent-guides'
+
 call plug#end()
 
 
