@@ -1,13 +1,30 @@
 " ---------------------------------
 " Neovim configuration
-" Version: 1.2
+" Version: 1.3
 " Date: 2020-11-16
 " Author: Juan Pablo Quiroga
 " Based in jdhao blog https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/
 " --------------------------------
 
+set encoding=utf-8
+
 " View line numbers
-set nu
+set number relativenumber
+syntax enable
+set noswapfile
+
+" Scroll when are less than x lines
+set scrolloff=7
+set backspace=indent,eol,start
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set fileformat=unix
+
+let mapleader=' '
 
 " **************
 " MAPS keys
@@ -28,6 +45,11 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " NerdTree toggle crtl-p
 nnoremap <silent> <C-p> :NERDTreeToggle<CR>
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+
+" Tabs
+nmap <C-x> :bd<CR>
 
 " ********************
 " Configurations
@@ -122,6 +144,13 @@ Plug 'vim-scripts/taglist.vim'
 " Icons for nerdtree
 Plug 'ryanoasis/vim-devicons'
 
+" Colorize css colors
+Plug 'norcalli/nvim-colorizer.lua'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 
@@ -135,3 +164,21 @@ call neomake#configure#automake('nrwi', 500)
 " *******************
 colorscheme gruvbox
 set background=dark " use dark mode
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+lua require 'colorizer'.setup()
+
+" Tabs
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamednode=':t'
+
