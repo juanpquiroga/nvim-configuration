@@ -26,6 +26,9 @@ set fileformat=unix
 
 let mapleader=' '
 
+set foldmethod=indent
+set foldlevel=99
+
 " **************
 " MAPS keys
 " **************
@@ -52,6 +55,8 @@ vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 nmap <C-x> :bd<CR>
 
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+noremap <leader>e :Files<CR>
 
 " ********************
 " Configurations
