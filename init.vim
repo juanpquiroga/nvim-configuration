@@ -190,12 +190,26 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Or build from source code by using yarn: https://yarnpkg.com
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'chrisbra/csv.vim'
 
 "Plug 'jmcantrell/vim-virtualenv'
+
+"Plug 'evanleck/vim-svelte', {'branch': 'main'}
+
+Plug 'leafOfTree/vim-svelte-plugin'
+
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+Plug 'skanehira/preview-markdown.vim'
+
+"Plug 'kassio/neoterm'
+Plug 'ekalinin/dockerfile.vim'
 
 call plug#end()
 
@@ -230,4 +244,27 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamednode=':t'
 
 let NERDTreeQuitOnOpen=1
+let g:vim_svelte_plugin_load_full_syntax = 1
 
+" open new split panes to right and below
+set splitright
+set splitbelow
+" turn terminal to normal mode with escape
+tnoremap <Esc> <C-\><C-n>
+" start terminal in insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" open terminal on ctrl+n
+function! OpenTerminal()
+  split term://zsh
+  resize 10
+endfunction
+
+nmap <C-n><C-t> :call OpenTerminal()<cr>
+
+let g:neoterm_default_mod='belowright' " open terminal in bottom split
+let g:neoterm_size=16 " terminal split size
+let g:neoterm_autoscroll=1 " scroll to the bottom when running a command
+nnoremap <leader><cr> :TREPLSendLine<cr>j " send current line and move down
+vnoremap <leader><cr> :TREPLSendSelection<cr> " send current selection
+
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
